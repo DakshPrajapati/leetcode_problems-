@@ -13,11 +13,6 @@ class Solution:
                     nums2.pop(0)
                     nums1.pop()
                     firstlen = firstlen + 1 
-        elif m == 0 and n != 0:
-            nums1.clear()
-            for i in range(0,n):
-                nums1.append(nums2[i])
-        
         if nums2:
             for i in range(m+n-len(nums2), len(nums1)):
                 nums1[i] = nums2[0]
