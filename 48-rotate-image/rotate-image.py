@@ -9,11 +9,4 @@ class Solution:
                 matrix[i][j] = matrix[j][i]
                 matrix[j][i] = temp
         for i in matrix:
-            start = 0 
-            end = len(matrix) - 1
-            while start<end:
-                temp = i[start]
-                i[start] = i[end]
-                i[end] = temp
-                start = start + 1
-                end = end - 1
+            i.reverse()
