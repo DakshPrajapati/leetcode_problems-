@@ -5,8 +5,6 @@ class Solution:
         """
         for i in range(0,len(matrix)):
             for j in range(i+1, len(matrix)):
-                temp = matrix[i][j]
-                matrix[i][j] = matrix[j][i]
-                matrix[j][i] = temp
+                matrix[i][j],matrix[j][i] = matrix[j][i], matrix[i][j]
         for i in matrix:
             i.reverse()
