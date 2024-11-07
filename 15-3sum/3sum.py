@@ -2,12 +2,11 @@ class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         ans = []
-        n = len(nums)
-        for i in range(n-2):
+        for i in range(len(nums)-2):
             if i>0 and nums[i] == nums[i-1]:
                 continue 
             left = i + 1
-            right = n - 1
+            right = len(nums) - 1
             while left < right:
                 summ = nums[i] + nums[left] + nums[right]
                 if summ == 0:  
