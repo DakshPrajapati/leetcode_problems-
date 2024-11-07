@@ -8,5 +8,5 @@ class Solution:
                 cnt = 0
             else:
                 cnt += 1
-            maxx = max(maxx,cnt)
+                maxx = max(maxx,cnt)
         return maxx
