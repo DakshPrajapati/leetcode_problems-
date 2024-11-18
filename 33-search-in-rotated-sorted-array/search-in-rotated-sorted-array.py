@@ -15,24 +15,16 @@ class Solution:
                 return right
             elif nums[mid] > nums[left]:
                 if nums[mid] >= target and nums[left] <= target:
-                    if nums[left] == target:
-                        return left
                     right = mid - 1
                     mid = int((left+right)/2 if (left+right)%2==0 else (left+right)//2+1)
                 else:
-                    if nums[right] == target:
-                        return right
                     left = mid + 1
                     mid = int((left+right)/2 if (left+right)%2==0 else (left+right)//2+1)
             elif nums[mid] < nums[right]:
                 if nums[mid] <= target and nums[right] >= target:
-                    if nums[right] == target:
-                        return right
                     left = mid + 1
                     mid = int((left+right)/2 if (left+right)%2==0 else (left+right)//2+1)
                 else:
-                    if nums[left] == target:
-                        return left
                     right = mid - 1
                     mid = int((left+right)/2 if (left+right)%2==0 else (left+right)//2+1)
             else:
