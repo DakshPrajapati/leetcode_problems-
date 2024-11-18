@@ -1,8 +1,10 @@
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         n, m = len(nums1) , len(nums2) 
-        i = j = count = v1 = v2 = 0
+        i = j = 0
+        count = 0
         t1, t2 = ((n + m) // 2) - 1, ((n + m) // 2)  
+        v1, v2 = 0, 0
         while True:
             n1 = nums1[i] if i < n else float('inf') 
             n2 = nums2[j] if j < m else float('inf')
