@@ -9,11 +9,10 @@ class Solution:
             "D" : 500,
             "M" : 1000
         }
-        lenn = len(s)
         val = 0
         i = 0
         lastInt = float(inf)
-        while i < lenn:
+        while i < len(s):
             if lastInt < vals.get(s[i]):
                 val += (vals.get(s[i]) - 2*lastInt)
             else:
