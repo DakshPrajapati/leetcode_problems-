@@ -15,4 +15,4 @@ class Solution:
                     stack.pop()
                 else:
                     return False
-        return True if not stack else False
+        return not stack
