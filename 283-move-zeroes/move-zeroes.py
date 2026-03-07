@@ -3,16 +3,11 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        left, right = 0, 0 
-        while right < len(nums):
+        left = 0 
+        for right in range(len(nums)):
             if nums[right] == 0:
-                right += 1
-            elif nums[right] != 0:
-                if nums[left] != 0:
-                    right += 1
-                    left += 1
-                elif nums[left] == 0:
+                continue 
+            else:
+                if nums[left] == 0:
                     nums[left], nums[right] = nums[right], nums[left]
-                    left += 1
-                    right += 1
-        
+                left += 1 
