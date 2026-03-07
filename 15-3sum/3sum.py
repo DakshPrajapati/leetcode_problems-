@@ -18,6 +18,9 @@ class Solution:
                     end -= 1
                 else:
                     start += 1
+
+                while start<end and nums[start] == nums[start] + 1:
+                    start += 1
                 
         return (list(answer))
         
