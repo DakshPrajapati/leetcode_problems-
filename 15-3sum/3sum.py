@@ -4,6 +4,10 @@ class Solution:
         answer = set()
 
         for i in range(0, len(nums)-2):
+
+            if i > 0 and nums[i] == nums[i-1]:
+                continue
+
             start = i + 1
             end = len(nums) - 1
             while start < end:
