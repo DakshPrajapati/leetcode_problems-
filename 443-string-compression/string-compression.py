@@ -8,9 +8,8 @@ class Solution:
             chars[answerIndex] = chars[l]
             answerIndex += 1
             if r - l > 1:
-                n = str(r - l) 
-                for i in range(len(n)):
-                    chars[answerIndex] = n[i]
+                for i in str(r-l):
+                    chars[answerIndex] = i
                     answerIndex += 1
             l = r
         return answerIndex
