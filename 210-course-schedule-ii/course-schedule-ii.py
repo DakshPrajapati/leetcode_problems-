@@ -1,27 +1,29 @@
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
-        mapp = defaultdict(list)
-        for u, v in prerequisites:
-            mapp[v].append(u)
+        adjMap = defaultdict(list)
+        for c, d in prerequisites:
+            adjMap[d].append(c)
         
         seen = []
         stack = []
 
-        def dfs(c):
-            if c in stack:
+        def dfs(root):
+            if root in stack:
                 return False
-            if c in seen:
+            if root in seen:
                 return True
-            
-            stack.append(c)
-            for nei in mapp[c]:
+
+            stack.append(root)
+            for nei in adjMap[root]:
                 if not dfs(nei):
                     return False
             stack.pop()
-            seen.append(c)
+            seen.append(root)
             return True
-
+        
         for course in range(numCourses):
             if not dfs(course):
                 return []
-        return (seen[::-1])
+
+        return seen[::-1]
+        
