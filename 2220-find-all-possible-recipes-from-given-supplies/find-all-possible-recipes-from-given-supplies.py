@@ -6,14 +6,11 @@ class Solution:
         
         canBeMade = set()
         seen = []
-        print(adjMap)
 
         def dfs(root):
-            if root in supplies:
+            if root in supplies or root in canBeMade:
                 return True
-            if root in canBeMade:
-                return True
-            if root in seen and root not in supplies:
+            if root in seen:
                 return False       
             if root in adjMap:
                 for c in adjMap[root]:
