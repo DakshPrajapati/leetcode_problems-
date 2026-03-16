@@ -1,20 +1,19 @@
 class Solution:
     def findAllRecipes(self, recipes: List[str], ingredients: List[List[str]], supplies: List[str]) -> List[str]:
-        adjMap = {}
+        idxMap = {}
         for idx, val in enumerate(ingredients):
-            adjMap[recipes[idx]] = val
+            idxMap[recipes[idx]] = idx
         
         canBeMade = set()
         seen = set()
-
         def dfs(root):
             if root in supplies or root in canBeMade:
                 return True
             if root in seen:
                 return False       
-            if root in adjMap:
+            if root in idxMap:
                 seen.add(root)
-                for c in adjMap[root]:
+                for c in ingredients[idxMap[root]]:
                     if not dfs(c):
                         seen.remove(root)
                         return False
