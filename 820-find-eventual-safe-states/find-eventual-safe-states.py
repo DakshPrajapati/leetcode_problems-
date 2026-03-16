@@ -2,22 +2,22 @@ class Solution:
     def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
         n = len(graph)
 
-        state = [0] * n
-        # 0 = unvisited
-        # 1 = visiting
-        # 2 = safe
+        seen = set()
+        stack = set()
+        
 
         def dfs(node: int) -> bool:
-            if state[node] != 0:
-                return state[node] == 2
-
-            state[node] = 1
-
+            
+            if node in stack:
+                return False
+            if node in seen:
+                return True
+            stack.add(node)
             for nei in graph[node]:
-                if state[nei] == 1 or not dfs(nei):
+                if not dfs(nei):
                     return False
-
-            state[node] = 2
+            stack.remove(node)
+            seen.add(node)
             return True
 
         result = []
