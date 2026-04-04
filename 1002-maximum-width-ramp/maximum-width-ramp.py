@@ -9,8 +9,6 @@ class Solution:
             else:
                 stack.append(idx)
         
-        print(stack)
-        
         maxDist = 0
         for i in range(n-1,-1,-1):
             while stack and nums[stack[-1]] <= nums[i] and stack[-1] <= i:
