@@ -1,12 +1,25 @@
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-        left, right = 1, 1
-        while right < len(nums):
-            if nums[right] == nums[left-1]:
-                right += 1
-            elif nums[left-1] != nums[right]:
-                nums[left] = nums[right]
-                left += 1
-                right += 1
+        '''
 
-        return left
+        hashmap = {
+
+        }
+
+        0,1,2,3,1,2,2,3,3,4
+          i 
+          j  
+        valJ = 0   
+        we insert at j 
+        '''
+        
+        valJ = -101
+        i, j = 0, 0
+
+        for i in range(len(nums)):
+            if nums[i] != valJ:
+                nums[j] = nums[i]
+                valJ = nums[j]
+                j += 1
+        
+        return j
