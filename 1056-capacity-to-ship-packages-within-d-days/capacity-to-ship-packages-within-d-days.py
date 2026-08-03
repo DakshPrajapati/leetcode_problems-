@@ -20,7 +20,7 @@ class Solution:
             d = returnDays(m)
             if d <= days:
                 r = m - 1
-                ans = min(ans, m)
+                ans = m
             else:
                 l = m + 1
         
