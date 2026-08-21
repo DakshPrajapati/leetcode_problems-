@@ -1,20 +1,19 @@
 class Solution:
     def maxDistance(self, arrays: List[List[int]]) -> int:
-        minNum = arrays[0][0]
-        maxNum = arrays[0][-1]
+        curMin = arrays[0][0]
+        curMax = arrays[0][-1]
         maxDist = 0
 
         for i in range(1, len(arrays)):
-            currentMin = arrays[i][0]
-            currentMax = arrays[i][-1]
+            localMin = arrays[i][0]
+            localMax = arrays[i][-1]
 
-            maxDist = max(
-                maxDist,
-                abs(currentMax - minNum),
-                abs(maxNum - currentMin)
+            maxDist = max(maxDist,
+                abs(localMax - curMin),
+                abs(localMin - curMax)
             )
+        
+            curMin = min(curMin, localMin)
+            curMax = max(curMax, localMax)
 
-            minNum = min(minNum, currentMin)
-            maxNum = max(maxNum, currentMax)
-
-        return maxDist
+        return (maxDist)
